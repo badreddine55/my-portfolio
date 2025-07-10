@@ -1,19 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import {
-  Code,
-  Palette,
-  Database,
-  Smartphone,
-  Server,
-  Zap,
-  ShoppingCart,
-  Settings,
-  ArrowRight,
-  ExternalLink,
-  Mail,
-} from "lucide-react"
+import { Code, Palette, Database, Smartphone, Server, Zap, ShoppingCart, Settings, ArrowRight } from "lucide-react"
 
 export default function ServicesSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -177,145 +165,162 @@ export default function ServicesSection() {
   }
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-32 overflow-hidden bg-black">
-      {/* Crosshatch/Mesh Background Pattern */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(-45deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: "20px 20px",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-50"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(-45deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-          `,
-          backgroundSize: "10px 10px",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.01) 0.5px, transparent 0.5px),
-            linear-gradient(-45deg, rgba(255,255,255,0.01) 0.5px, transparent 0.5px)
-          `,
-          backgroundSize: "5px 5px",
-        }}
-      />
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div
-            className={`text-center mb-12 md:mb-20 transform transition-all duration-1000 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
-          >
-            <div className="flex items-center justify-center gap-4 mb-6 md:mb-8">
-              <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
-              <span className="text-xs md:text-sm text-gray-400 font-mono">// Services</span>
-              <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">
-              What I Offer
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-              Comprehensive web development and design services to bring your digital vision to life
-            </p>
-          </div>
-
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-            {services.map((service, index) => {
-              const colorClasses = getColorClasses(service.color)
-              const IconComponent = service.icon
-
-              return (
-                <div
-                  key={service.id}
-                  className={`group transform transition-all duration-1000 ${service.delay} ${
-                    isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                  }`}
-                  onMouseEnter={() => setHoveredService(service.id)}
-                  onMouseLeave={() => setHoveredService(null)}
-                >
-                  <div
-                    className={`relative h-full bg-black/20 backdrop-blur-sm border ${colorClasses.border} ${colorClasses.hover} transition-all duration-500 rounded-lg hover:scale-105 hover:shadow-2xl ${colorClasses.glow} cursor-pointer`}
-                  >
-                    <div className="p-6 md:p-8 h-full flex flex-col">
-                      {/* Service Icon */}
-                      <div
-                        className={`w-12 h-12 md:w-16 md:h-16 ${colorClasses.bg} rounded-lg flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <IconComponent className={`w-6 h-6 md:w-8 md:h-8 ${colorClasses.text}`} />
-                      </div>
-
-                      {/* Service Title */}
-                      <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 group-hover:text-teal-400 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-
-                      {/* Service Description */}
-                      <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-4 md:mb-6 flex-grow">
-                        {service.description}
-                      </p>
-
-                      {/* Service Features */}
-                      <div className="space-y-2 mb-6">
-                        {service.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center gap-2">
-                            <div className={`w-1.5 h-1.5 ${colorClasses.bg} rounded-full flex-shrink-0`}></div>
-                            <span className="text-xs md:text-sm text-gray-300">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* CTA Button */}
-                      <button
-                        className={`w-full group/btn relative px-4 py-3 bg-transparent border ${colorClasses.border} ${colorClasses.text} font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 ${colorClasses.hover} hover:text-white hover:shadow-lg ${colorClasses.glow}`}
-                      >
-                        <div
-                          className={`absolute inset-0 ${service.color === "teal" ? "bg-teal-500" : service.color === "blue" ? "bg-blue-500" : service.color === "purple" ? "bg-purple-500" : service.color === "pink" ? "bg-pink-500" : service.color === "green" ? "bg-green-500" : service.color === "orange" ? "bg-orange-500" : service.color === "yellow" ? "bg-yellow-500" : "bg-indigo-500"} scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left`}
-                        ></div>
-                        <span className="relative z-10 flex items-center justify-center gap-2 text-sm md:text-base">
-                          Get Started
-                          <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
-                        </span>
-                      </button>
-
-                      {/* Hover Glow Effect */}
-                      <div
-                        className={`absolute -inset-1 ${service.color === "teal" ? "bg-teal-500/20" : service.color === "blue" ? "bg-blue-500/20" : service.color === "purple" ? "bg-purple-500/20" : service.color === "pink" ? "bg-pink-500/20" : service.color === "green" ? "bg-green-500/20" : service.color === "orange" ? "bg-orange-500/20" : service.color === "yellow" ? "bg-yellow-500/20" : "bg-indigo-500/20"} rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10`}
-                      ></div>
-                    </div>
-
-                    {/* Animated Corner Accent */}
-                    <div
-                      className={`absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] ${service.color === "teal" ? "border-t-teal-500/30" : service.color === "blue" ? "border-t-blue-500/30" : service.color === "purple" ? "border-t-purple-500/30" : service.color === "pink" ? "border-t-pink-500/30" : service.color === "green" ? "border-t-green-500/30" : service.color === "orange" ? "border-t-orange-500/30" : service.color === "yellow" ? "border-t-yellow-500/30" : "border-t-indigo-500/30"} rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                    ></div>
-                  </div>
+    <div className="min-h-screen ">
+      {/* Video Background Wrapper */}
+      
+        <section ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <div
+                className={`text-center mb-12 md:mb-20 transform transition-all duration-1000 ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                }`}
+              >
+                <div className="flex items-center justify-center gap-4 mb-6 md:mb-8">
+                  <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
+                  <span className="text-xs md:text-sm text-gray-400 font-mono">// Services</span>
+                  <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
                 </div>
-              )
-            })}
-          </div>
+                <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">
+                  What I Offer
+                </h2>
+                <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
+                  Comprehensive web development and design services to bring your digital vision to life
+                </p>
+              </div>
 
-          {/* Call to Action */}
-          <div
-            className={`text-center mt-12 md:mt-20 transform transition-all duration-1000 delay-1000 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
-          >
+              {/* Services Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                {services.map((service, index) => {
+                  const colorClasses = getColorClasses(service.color)
+                  const IconComponent = service.icon
+                  return (
+                    <div
+                      key={service.id}
+                      className={`group transform transition-all duration-1000 ${service.delay} ${
+                        isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                      }`}
+                      onMouseEnter={() => setHoveredService(service.id)}
+                      onMouseLeave={() => setHoveredService(null)}
+                    >
+                      <div
+                        className={`relative h-full bg-black/20 backdrop-blur-sm border ${colorClasses.border} ${colorClasses.hover} transition-all duration-500 rounded-lg hover:scale-105 hover:shadow-2xl ${colorClasses.glow} cursor-pointer`}
+                      >
+                        <div className="p-6 md:p-8 h-full flex flex-col">
+                          {/* Service Icon */}
+                          <div
+                            className={`w-12 h-12 md:w-16 md:h-16 ${colorClasses.bg} rounded-lg flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300`}
+                          >
+                            <IconComponent className={`w-6 h-6 md:w-8 md:h-8 ${colorClasses.text}`} />
+                          </div>
 
+                          {/* Service Title */}
+                          <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 group-hover:text-teal-400 transition-colors duration-300">
+                            {service.title}
+                          </h3>
+
+                          {/* Service Description */}
+                          <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-4 md:mb-6 flex-grow">
+                            {service.description}
+                          </p>
+
+                          {/* Service Features */}
+                          <div className="space-y-2 mb-6">
+                            {service.features.map((feature, featureIndex) => (
+                              <div key={featureIndex} className="flex items-center gap-2">
+                                <div className={`w-1.5 h-1.5 ${colorClasses.bg} rounded-full flex-shrink-0`}></div>
+                                <span className="text-xs md:text-sm text-gray-300">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* CTA Button */}
+                          <button
+                            className={`w-full group/btn relative px-4 py-3 bg-transparent border ${colorClasses.border} ${colorClasses.text} font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 ${colorClasses.hover} hover:text-white hover:shadow-lg ${colorClasses.glow}`}
+                          >
+                            <div
+                              className={`absolute inset-0 ${
+                                service.color === "teal"
+                                  ? "bg-teal-500"
+                                  : service.color === "blue"
+                                    ? "bg-blue-500"
+                                    : service.color === "purple"
+                                      ? "bg-purple-500"
+                                      : service.color === "pink"
+                                        ? "bg-pink-500"
+                                        : service.color === "green"
+                                          ? "bg-green-500"
+                                          : service.color === "orange"
+                                            ? "bg-orange-500"
+                                            : service.color === "yellow"
+                                              ? "bg-yellow-500"
+                                              : "bg-indigo-500"
+                              } scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left`}
+                            ></div>
+                            <span className="relative z-10 flex items-center justify-center gap-2 text-sm md:text-base">
+                              Get Started
+                              <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
+                            </span>
+                          </button>
+
+                          {/* Hover Glow Effect */}
+                          <div
+                            className={`absolute -inset-1 ${
+                              service.color === "teal"
+                                ? "bg-teal-500/20"
+                                : service.color === "blue"
+                                  ? "bg-blue-500/20"
+                                  : service.color === "purple"
+                                    ? "bg-purple-500/20"
+                                    : service.color === "pink"
+                                      ? "bg-pink-500/20"
+                                      : service.color === "green"
+                                        ? "bg-green-500/20"
+                                        : service.color === "orange"
+                                          ? "bg-orange-500/20"
+                                          : service.color === "yellow"
+                                            ? "bg-yellow-500/20"
+                                            : "bg-indigo-500/20"
+                            } rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10`}
+                          ></div>
+                        </div>
+
+                        {/* Animated Corner Accent */}
+                        <div
+                          className={`absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] ${
+                            service.color === "teal"
+                              ? "border-t-teal-500/30"
+                              : service.color === "blue"
+                                ? "border-t-blue-500/30"
+                                : service.color === "purple"
+                                  ? "border-t-purple-500/30"
+                                  : service.color === "pink"
+                                    ? "border-t-pink-500/30"
+                                    : service.color === "green"
+                                      ? "border-t-green-500/30"
+                                      : service.color === "orange"
+                                        ? "border-t-orange-500/30"
+                                        : service.color === "yellow"
+                                          ? "border-t-yellow-500/30"
+                                          : "border-t-indigo-500/30"
+                          } rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                        ></div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Call to Action */}
+              <div
+                className={`text-center mt-12 md:mt-20 transform transition-all duration-1000 delay-1000 ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                }`}
+              ></div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+    </div>
   )
 }

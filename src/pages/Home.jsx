@@ -9,6 +9,7 @@ import ProjectsSection from '../components/ProjectsSection';
 import ServicesSection from '../components/ServicesSection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
+import VideoBackgroundWrapper from "../components/VideoBackgroundWrapper"
 
 export default function Home() {
   return (
@@ -18,11 +19,11 @@ export default function Home() {
       <section id="home">
         <HeroSection />
       </section>
-
+<VideoBackgroundWrapper>
       <section id="about">
         <AboutSection />
       </section>
-
+     
       <section id="skills">
         <SkillsSection />
       </section>
@@ -30,10 +31,12 @@ export default function Home() {
       <section id="projects">
         <ProjectsSection />
       </section>
+     
 
       {/* Add Services section when you create it */}
       <section id="services"><ServicesSection/></section>
       <section id="CTASection"><CTASection/></section>
+      </VideoBackgroundWrapper>
       {/* Add Contact section when you create it */}
       <section id="contact">{/* <ContactSection /> */}</section>
 

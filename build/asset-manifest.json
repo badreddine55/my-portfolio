@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/my-react-app/static/css/main.b72364ca.css",
+    "main.js": "/my-react-app/static/js/main.d2bf3491.js",
+    "static/js/321.0367e4e9.chunk.js": "/my-react-app/static/js/321.0367e4e9.chunk.js",
+    "static/js/415.58269b94.chunk.js": "/my-react-app/static/js/415.58269b94.chunk.js",
+    "static/media/Screenshot from 2025-07-08 16-59-30.png": "/my-react-app/static/media/Screenshot from 2025-07-08 16-59-30.1b4c3c59838cf2ad4b35.png",
+    "static/media/Screenshot from 2025-07-08 17-01-23.png": "/my-react-app/static/media/Screenshot from 2025-07-08 17-01-23.e040aa3a2350d42156b9.png",
+    "static/media/Screenshot from 2025-07-08 17-03-24.png": "/my-react-app/static/media/Screenshot from 2025-07-08 17-03-24.322e669f17bbaa96b4f5.png",
+    "static/media/WhatsApp_Image_2025-07-08_at_4.27.21_PM-removebg-preview.png": "/my-react-app/static/media/WhatsApp_Image_2025-07-08_at_4.27.21_PM-removebg-preview.c29d4dfe46cf21519bdf.png",
+    "index.html": "/my-react-app/index.html",
+    "main.b72364ca.css.map": "/my-react-app/static/css/main.b72364ca.css.map",
+    "main.d2bf3491.js.map": "/my-react-app/static/js/main.d2bf3491.js.map",
+    "321.0367e4e9.chunk.js.map": "/my-react-app/static/js/321.0367e4e9.chunk.js.map",
+    "415.58269b94.chunk.js.map": "/my-react-app/static/js/415.58269b94.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b72364ca.css",
+    "static/js/main.d2bf3491.js"
+  ]
+}

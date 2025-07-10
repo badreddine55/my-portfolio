@@ -1,41 +1,48 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import { ArrowRight, Code, Server, Wrench } from "lucide-react"
+import { useEffect, useState, useRef } from "react";
+import { ArrowRight, Code, Server, Wrench } from "lucide-react";
 
 export default function SkillsSection() {
-  const [scrollY, setScrollY] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef(null)
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.2 },
-    )
+      { threshold: 0.2 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      observer.disconnect()
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
+  }, []);
 
   const skillCategories = [
     {
       title: "Frontend",
       icon: Code,
-      skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Bootstrap"],
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Tailwind CSS",
+        "Bootstrap",
+      ],
       gradient: "from-blue-500/20 via-cyan-500/20 to-teal-500/20",
       borderGradient: "from-blue-500 via-cyan-500 to-teal-500",
       iconColor: "text-cyan-400",
@@ -56,50 +63,23 @@ export default function SkillsSection() {
       borderGradient: "from-emerald-500 via-green-500 to-lime-500",
       iconColor: "text-green-400",
     },
-  ]
+  ];
 
   return (
-    <section ref={sectionRef} className="relative w-full py-16 md:py-60 overflow-hidden bg-black">
-      {/* Crosshatch/Mesh Background Pattern */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(-45deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: "20px 20px",
-        }}
-      />
+    <section
+      ref={sectionRef}
+      className="relative w-full py-16 md:py-60 overflow-hidden "
+    >
 
-      <div
-        className="absolute inset-0 opacity-50"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(-45deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-          `,
-          backgroundSize: "10px 10px",
-        }}
-      />
 
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.01) 0.5px, transparent 0.5px),
-            linear-gradient(-45deg, rgba(255,255,255,0.01) 0.5px, transparent 0.5px)
-          `,
-          backgroundSize: "5px 5px",
-        }}
-      />
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
+      <div className="container mx-auto   px-4 sm:px-6 lg:px-16 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div
-            className={`text-center mb-12 md:mb-20 transform transition-all duration-1000 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            className={`text-center mb-12 md:mb-28 transform transition-all duration-1000 ${
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
             style={{
               transform: `translateY(${scrollY * 0.02}px)`,
@@ -107,29 +87,33 @@ export default function SkillsSection() {
           >
             <div className="flex items-center justify-center gap-4 mb-6 md:mb-8">
               <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
-              <span className="text-xs md:text-sm text-gray-400 font-mono">// Skills & Expertise</span>
+              <span className="text-xs md:text-sm text-gray-400 font-mono">
+                // Skills & Expertise
+              </span>
               <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">
               Technical Arsenal
             </h2>
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-              Crafting digital experiences with modern technologies and proven methodologies
+              Crafting digital experiences with modern technologies and proven
+              methodologies
             </p>
           </div>
 
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Skills Cards */}
-            <div className="space-y-6 md:space-y-8 w-full">
+            <div className="space-y-6  md:space-y-8 w-full">
               {skillCategories.map((category, index) => (
                 <div
                   key={category.title}
-                  className={`group relative transform transition-all duration-1000 delay-${index * 200} ${
-                    isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+                  className={`group relative transform transition-all duration-1000 delay-${
+                    index * 200
+                  } ${
+                    isVisible
+                      ? "translate-x-0 opacity-100"
+                      : "-translate-x-8 opacity-0"
                   }`}
-                  style={{
-                    transform: `translateY(${scrollY * (0.03 + index * 0.01)}px)`,
-                  }}
                 >
                   {/* Card Container */}
                   <div className="relative p-4 md:p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden group-hover:scale-[1.02]">
@@ -152,7 +136,9 @@ export default function SkillsSection() {
                       {/* Header */}
                       <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
                         <div className="p-2 md:p-3 rounded-xl bg-black/30 backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-transform duration-300">
-                          <category.icon className={`w-5 h-5 md:w-6 md:h-6 ${category.iconColor}`} />
+                          <category.icon
+                            className={`w-5 h-5 md:w-6 md:h-6 ${category.iconColor}`}
+                          />
                         </div>
                         <h3 className="text-lg md:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
                           {category.title}
@@ -192,11 +178,11 @@ export default function SkillsSection() {
             {/* Right Content */}
             <div
               className={`space-y-6 md:space-y-8 w-full transform transition-all duration-1000 delay-600 ${
-                isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+                isVisible
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-8 opacity-0"
               }`}
-              style={{
-                transform: `translateY(${scrollY * 0.02}px)`,
-              }}
+
             >
               {/* Description Card */}
               <div className="relative p-6 md:p-8 rounded-2xl backdrop-blur-sm border border-white/10 overflow-hidden group hover:border-white/20 transition-all duration-500">
@@ -209,13 +195,17 @@ export default function SkillsSection() {
                     <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400 flex items-center justify-center">
                       <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white animate-pulse" />
                     </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white">About My Expertise</h3>
+                    <h3 className="text-lg md:text-xl font-semibold text-white">
+                      About My Expertise
+                    </h3>
                   </div>
 
                   <p className="text-sm md:text-lg text-gray-300 leading-relaxed mb-4 md:mb-6 group-hover:text-gray-200 transition-colors duration-300">
-                    I thrive on solving real-world problems, turning ideas into clean, maintainable code, and learning
-                    through experimentation. You'll find me building side projects, diving into new tech stacks, or
-                    simply exploring what's next in the world of web development.
+                    I thrive on solving real-world problems, turning ideas into
+                    clean, maintainable code, and learning through
+                    experimentation. You'll find me building side projects,
+                    diving into new tech stacks, or simply exploring what's next
+                    in the world of web development.
                   </p>
 
                   {/* Stats */}
@@ -232,7 +222,9 @@ export default function SkillsSection() {
                         <div className="text-lg md:text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
                           {stat.value}
                         </div>
-                        <div className="text-xs text-gray-400 mt-1">{stat.label}</div>
+                        <div className="text-xs text-gray-400 mt-1">
+                          {stat.label}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -262,5 +254,5 @@ export default function SkillsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

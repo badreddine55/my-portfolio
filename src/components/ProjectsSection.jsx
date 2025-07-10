@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
+
 import image1 from '../assets/Screenshot from 2025-07-08 16-59-30.png'
 import image2 from '../assets/Screenshot from 2025-07-08 17-01-23.png'
 import image3 from '../assets/Screenshot from 2025-07-08 17-03-24.png'
@@ -17,6 +18,8 @@ export default function ProjectsSection() {
       delay: "delay-200",
       size: "w-[900px] h-[600px]",
       url: "https://techzo-demo.com",
+      hasDetailPage: true,
+      detailRoute: "/ProjectDetail1",
     },
     {
       title: "NightPharm",
@@ -26,6 +29,8 @@ export default function ProjectsSection() {
       delay: "delay-500",
       size: "w-[720px] h-[500px]",
       url: "https://flakestake-demo.com",
+      hasDetailPage: true,
+      detailRoute: "/ProjectDetail2",
     },
     {
       title: "PORTFOLIO",
@@ -35,6 +40,8 @@ export default function ProjectsSection() {
       delay: "delay-700",
       size: "w-[700px] h-[550px]",
       url: "https://ruralarena-demo.com",
+      hasDetailPage: true,
+      detailRoute: "/ProjectDetail3",
     },
   ]
 
@@ -55,41 +62,20 @@ export default function ProjectsSection() {
     return () => observer.disconnect()
   }, [])
 
+  const handleProjectClick = (project) => {
+    if (project.hasDetailPage && project.detailRoute) {
+      // Navigate to project detail page
+      window.location.href = project.detailRoute
+    } else if (project.url) {
+      // Open external URL
+      window.open(project.url, "_blank")
+    }
+  }
+
   return (
-    <section ref={sectionRef} className="relative w-full py-16 md:py-0 md:h-[2000px] overflow-hidden bg-black">
+    <section ref={sectionRef} className="relative w-full py-16 md:py-0 md:h-[2000px] overflow-hidden ">
       {/* Crosshatch/Mesh Background Pattern */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(-45deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: "20px 20px",
-        }}
-      />
 
-      <div
-        className="absolute inset-0 opacity-50"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(-45deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-          `,
-          backgroundSize: "10px 10px",
-        }}
-      />
-
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, rgba(255,255,255,0.01) 0.5px, transparent 0.5px),
-            linear-gradient(-45deg, rgba(255,255,255,0.01) 0.5px, transparent 0.5px)
-          `,
-          backgroundSize: "5px 5px",
-        }}
-      />
 
       {/* Section title */}
       <div
@@ -118,6 +104,7 @@ export default function ProjectsSection() {
             className={`absolute ${project.position} ${project.size} group cursor-pointer transform transition-all duration-1000 ease-out ${
               isVisible ? `translate-y-0 opacity-100 scale-100 ${project.delay}` : "translate-y-12 opacity-0 scale-95"
             }`}
+            onClick={() => handleProjectClick(project)}
           >
             {/* Project Card */}
             <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-900 border border-gray-800 hover:border-gray-600 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-black/50">
@@ -128,10 +115,8 @@ export default function ProjectsSection() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
-
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
@@ -144,21 +129,13 @@ export default function ProjectsSection() {
                 </div>
               </div>
 
-              {/* Public Link Button - Only show if URL exists */}
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-white text-sm font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                >
-                  View Project
-                </a>
-              )}
+              {/* Action Button */}
+              <div className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-white text-sm font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                View Details
+              </div>
 
               {/* Animated border on hover */}
               <div className="absolute inset-0 rounded-2xl border-2 border-white/0 group-hover:border-white/20 transition-all duration-500" />
-
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-teal-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
             </div>
@@ -186,6 +163,7 @@ export default function ProjectsSection() {
             className={`w-full max-w-sm group cursor-pointer transform transition-all duration-1000 ease-out ${
               isVisible ? `translate-y-0 opacity-100 scale-100 ${project.delay}` : "translate-y-12 opacity-0 scale-95"
             }`}
+            onClick={() => handleProjectClick(project)}
           >
             {/* Project Card */}
             <div className="relative w-full h-[300px] sm:h-[400px] rounded-2xl overflow-hidden bg-gray-900 border border-gray-800 hover:border-gray-600 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-black/50">
@@ -196,10 +174,8 @@ export default function ProjectsSection() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
-
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
@@ -226,21 +202,13 @@ export default function ProjectsSection() {
                 </div>
               </div>
 
-              {/* Public Link Button - Only show if URL exists */}
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 text-white text-xs sm:text-sm font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                >
-                  View Project
-                </a>
-              )}
+              {/* Action Button */}
+              <div className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 text-white text-xs sm:text-sm font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                View Details
+              </div>
 
               {/* Animated border on hover */}
               <div className="absolute inset-0 rounded-2xl border-2 border-white/0 group-hover:border-white/20 transition-all duration-500" />
-
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-teal-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
             </div>
