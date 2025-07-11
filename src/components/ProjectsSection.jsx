@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react"
 
 import image1 from '../assets/Screenshot from 2025-07-08 16-59-30.png'
 import image2 from '../assets/Screenshot from 2025-07-08 17-01-23.png'
-import image3 from '../assets/Screenshot from 2025-07-08 17-03-24.png'
+import image3 from '../assets/Screenshot from 2025-07-11 16-41-30.png'
 export default function ProjectsSection() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
