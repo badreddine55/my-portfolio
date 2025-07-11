@@ -196,35 +196,36 @@ export default function ProjectDetail2() {
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">Project Gallery</h2>
 
                 {/* Main Image Display */}
-                <div className="relative bg-black/20 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden mb-6">
-                  <div className="relative aspect-video">
-                    <img
-                      src={projectImages[currentImageIndex] || "/placeholder.svg"}
-                      alt={`NightPharm Screenshot ${currentImageIndex + 1}`}
-                      className="w-full h-full object-cover"
-                    />
+                  {/* Main Image Display */}
+                  <div className="relative bg-black/20 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden mb-6">
+                    <div className="relative w-full">
+                      <img
+                        src={projectImages[currentImageIndex] || "/placeholder.svg"}
+                        alt={`HP ISTA BENGUERIR Screenshot ${currentImageIndex + 1}`}
+                        className="w-full max-h-[80vh] object-contain"
+                        style={{ aspectRatio: 'auto' }}
+                      />
 
-                    {/* Navigation Arrows */}
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/80 backdrop-blur-sm border border-white/20 hover:border-teal-500 hover:bg-teal-500/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                    >
-                      <ChevronLeft className="w-6 h-6 text-white group-hover:text-teal-400 transition-colors duration-300" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/80 backdrop-blur-sm border border-white/20 hover:border-teal-500 hover:bg-teal-500/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                    >
-                      <ChevronRight className="w-6 h-6 text-white group-hover:text-teal-400 transition-colors duration-300" />
-                    </button>
+                      {/* Navigation Arrows */}
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/80 backdrop-blur-sm border border-white/20 hover:border-teal-500 hover:bg-teal-500/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                      >
+                        <ChevronLeft className="w-6 h-6 text-white group-hover:text-teal-400 transition-colors duration-300" />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/80 backdrop-blur-sm border border-white/20 hover:border-teal-500 hover:bg-teal-500/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                      >
+                        <ChevronRight className="w-6 h-6 text-white group-hover:text-teal-400 transition-colors duration-300" />
+                      </button>
 
-                    {/* Image Counter */}
-                    <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/80 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm">
-                      {currentImageIndex + 1} / {projectImages.length}
+                      {/* Image Counter */}
+                      <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/80 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm">
+                        {currentImageIndex + 1} / {projectImages.length}
+                      </div>
                     </div>
                   </div>
-                </div>
-
                 {/* Thumbnail Navigation */}
                 <div className="flex gap-2 justify-center overflow-x-auto pb-2">
                   {projectImages.map((image, index) => (

@@ -1,8 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import imge from '../assets/WhatsApp_Image_2025-07-08_at_4.27.21_PM-removebg-preview.png';
-
+import imge from '../assets/imag.jpeg';
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -236,40 +235,19 @@ export default function HeroSection() {
                 }`}
               >
                 {/* Download CV Button */}
-                <button
-                  onClick={() => {
-                    // Import the PDF file or use a public URL
-                    const link = document.createElement("a")
-                    link.href = "/my-portfolio/BadrEddineDiyaf.pdf" // Use the correct path
-                    link.download = "Badr_Eddine_Diyaf_CV.pdf"
-                    link.click()
-                  }}
-                  className="group relative px-8 py-4 bg-transparent border-2 border-teal-500 text-teal-400 font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-teal-500 hover:text-white hover:shadow-2xl hover:shadow-teal-500/25 active:scale-95"
-                >
-                  {/* Button Background Animation */}
-                  <div className="absolute inset-0 bg-teal-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                  {/* Ripple Effect */}
-                  <div className="absolute inset-0 rounded-full bg-white/20 scale-0 group-active:scale-100 transition-transform duration-200"></div>
-                  {/* Button Text */}
-                  <span className="relative z-10 flex items-center gap-2">
-                    <svg
-                      className="w-4 h-4 transform group-hover:animate-bounce"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
-                    Download CV
-                  </span>
-                  {/* Glow Effect */}
-                  <div className="absolute -inset-1 bg-teal-500/30 rounded-full opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300 -z-10"></div>
-                </button>
+<button
+  onClick={() => {
+    const link = document.createElement("a");
+    link.href = "/BadrEddineDiyaf.pdf"; // Path relative to public folder
+    link.download = "Badr_Eddine_Diyaf_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }}
+  className="group relative px-8 py-4 bg-transparent border-2 border-teal-500 text-teal-400 font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-teal-500 hover:text-white hover:shadow-2xl hover:shadow-teal-500/25 active:scale-95"
+>
+  Download CV
+</button>
               </div>
 
               {/* Decorative Line */}
