@@ -31,9 +31,7 @@ export default function Navbar() {
             {/* Logo/Brand */}
             <div className="flex items-center">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-black rounded-full"></div>
-                </div>
+
                 <span className="text-white font-bold text-lg tracking-wider">BADR EDDINE</span>
               </div>
             </div>
