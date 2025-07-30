@@ -264,20 +264,7 @@ export default function ServicesSection() {
               })}
             </div>
 
-            {/* Call to Action */}
-            <div
-              className={`text-center mt-12 md:mt-20 transform transition-all duration-1000 delay-1000 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-              }`}
-            >
-              <a
-                href="#"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-teal-600 rounded-lg shadow-lg hover:bg-teal-700 transition-colors duration-300 group"
-              >
-                Explore All Services
-                <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
-            </div>
+
           </div>
         </div>
       </section>
