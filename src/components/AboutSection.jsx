@@ -74,7 +74,7 @@ export default function AboutSection() {
       location: "Ben Guerir",
       type: "internship",
       description:
-        "La phase initiale du stage a consisté à analyser les besoins en collaborant étroitement avec les parties prenantes, notamment les gestionnaires et les formateurs, pour comprendre les lacunes de leur processus manuel de planification des salles et des groupes. Développement d'un système de gestion des stocks et des opérations pour Ben Guerir utilisant Laravel et MySQL.",
+        "The initial phase of the internship consisted of analyzing needs by collaborating closely with stakeholders, including managers and trainers, to understand the shortcomings of their manual process for planning rooms and groups. Development of a stock and operations management system for Ben Guerir using Laravel and MySQL.",
       technologies: ["Laravel", "MySQL", "System Architecture", "Database Management"],
       hasReport: true,
       reportName: "OCBG_Internship_Report.pdf",
@@ -98,7 +98,7 @@ export default function AboutSection() {
       location: "Ben Guerir",
       type: "current",
       description:
-        "Conception de NightPharm, une plateforme web visant à améliorer l'accessibilité aux soins de santé nocturnes et en cas d'urgence. Mise en œuvre de fonctionnalités clés, notamment la cartographie des pharmacies en temps réel, les consultations infirmières 24h/24 et 7j/7 et la gestion simplifiée des livraisons.",
+        "Design of NightPharm, a web platform aimed at improving accessibility to nighttime and emergency healthcare. Implementation of key features, including real-time pharmacy mapping, 24/7 nursing consultations, and simplified delivery management.",
       technologies: ["React.js", "Node.js", "MongoDB", "Real-time mapping"],
       hasReport: false,
     },
@@ -159,10 +159,7 @@ export default function AboutSection() {
                         Full Stack Developer
                       </p>
                       <p className="text-sm sm:text-base text-gray-200 leading-relaxed drop-shadow-sm">
-                        Développeur web passionné, spécialisé en développement full stack et conception UI/UX, avec une
-                        forte aptitude à créer des applications responsives, optimisées et centrées sur l'utilisateur.
-                        Polyvalent et innovant, je résous des problèmes techniques complexes et livre des projets de
-                        haute qualité dans les délais.
+                        Passionate web developer, specialized in full stack development and UI/UX design, with a strong ability to create responsive, optimized, and user-centered applications. Versatile and innovative, I solve complex technical problems and deliver high-quality projects on time.
                       </p>
                     </div>
 
@@ -355,13 +352,13 @@ export default function AboutSection() {
               <div className="p-4 sm:p-6 lg:p-8">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
                   {[
-                    "Développement front-end/back-end",
-                    "Prototypage et wireframing",
-                    "Conception et gestion de bases de données",
-                    "Conception UI/UX",
-                    "Développement et intégration d'API (REST/GraphQL)",
-                    "Marketing digital",
-                    "Gestion de contenu",
+                    "Front-end/back-end development",
+                    "Prototyping and wireframing",
+                    "Database design and management",
+                    "UI/UX design",
+                    "API development and integration (REST/GraphQL)",
+                    "Digital marketing",
+                    "Content management",
                   ].map((skill, index) => (
                     <div
                       key={index}

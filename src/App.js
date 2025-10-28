@@ -119,7 +119,7 @@ const WelcomeScreen = ({ onStart }) => {
             </div>
 
             <h1
-              className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6"
+              className="text-2xl sm:text-4xl lg:text-4xl font-bold mb-4 sm:mb-6"
               style={{
                 background:
                   "linear-gradient(135deg, #ffffff 0%, #5eead4 30%, #14b8a6 60%, #ffffff 100%)",
@@ -129,7 +129,7 @@ const WelcomeScreen = ({ onStart }) => {
                 filter: "drop-shadow(0 0 20px rgba(20, 184, 166, 0.3))",
               }}
             >
-              BADR EDDINE
+              BADR EDDINE DIYAF
             </h1>
 
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-2 sm:mb-4">

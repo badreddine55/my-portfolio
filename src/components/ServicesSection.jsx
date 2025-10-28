@@ -6,6 +6,8 @@ import { Code, Palette, Database, Smartphone, Server, Zap, ShoppingCart, Setting
 export default function ServicesSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [hoveredService, setHoveredService] = useState(null)
+  const [showForm, setShowForm] = useState(false)
+  const [currentService, setCurrentService] = useState(null)
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -170,6 +172,11 @@ export default function ServicesSection() {
     return colors[color] || colors.teal
   }
 
+  const handleGetStarted = (title) => {
+    setCurrentService(title)
+    setShowForm(true)
+  }
+
   return (
     <div className="min-h-screen text-white">
       <section ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden">
@@ -237,6 +244,7 @@ export default function ServicesSection() {
                         </div>
                         {/* CTA Button */}
                         <button
+                          onClick={() => handleGetStarted(service.title)}
                           className={`w-full group/btn relative px-4 py-3 bg-transparent border ${colorClasses.border} ${colorClasses.text} font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 ${colorClasses.hover} hover:text-white hover:shadow-lg ${colorClasses.glow} flex items-center justify-center`}
                         >
                           <div
@@ -263,11 +271,70 @@ export default function ServicesSection() {
                 )
               })}
             </div>
-
-
           </div>
         </div>
       </section>
+
+      {showForm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-black/80 backdrop-blur-md p-8 rounded-lg max-w-md w-full border border-teal-500/30 relative">
+            <h2 className="text-2xl font-bold text-white mb-4">Contact Me about {currentService}</h2>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+                const formData = new FormData(e.target)
+                const name = formData.get("name")
+                const email = formData.get("email")
+                const message = formData.get("message")
+                const subject = `Inquiry about ${currentService}`
+                const body = `From: ${name} <${email}>\n\n${message}`
+                window.location.href = `mailto:beddine330@gmail.com?subject=${encodeURIComponent(
+                  subject
+                )}&body=${encodeURIComponent(body)}`
+                setShowForm(false)
+              }}
+            >
+              <div className="space-y-4">
+                <label className="block">
+                  <span className="text-gray-300">Name</span>
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    className="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white"
+                  />
+                </label>
+                <label className="block">
+                  <span className="text-gray-300">Email</span>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    className="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white"
+                  />
+                </label>
+                <label className="block">
+                  <span className="text-gray-300">Message</span>
+                  <textarea
+                    name="message"
+                    required
+                    className="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white h-32"
+                  ></textarea>
+                </label>
+                <button type="submit" className="w-full bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
+                  Send Email
+                </button>
+              </div>
+            </form>
+            <button
+              onClick={() => setShowForm(false)}
+              className="absolute top-2 right-2 text-gray-400 hover:text-white"
+            >
+              X
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
