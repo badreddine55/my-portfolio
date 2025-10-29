@@ -36,22 +36,21 @@ export default function HeroSection() {
       clearTimeout(timer)
     }
   }, [])
+const handleSocialClick = (platform) => {
+  setClickedSocial(platform)
+  setTimeout(() => setClickedSocial(null), 300)
 
-  const handleSocialClick = (platform) => {
-    setClickedSocial(platform)
-    setTimeout(() => setClickedSocial(null), 300)
-
-    const urls = {
-      github: "https://github.com/badreddine55/",
-      linkedin: "https://www.linkedin.com/in/badr-eddine-252704319/",
-      twitter: "https://x.com/Badr_eddine55",
-      instagram: "https://www.instagram.com/badr_dy/",
-    }
-
-    if (urls[platform]) {
-      window.location.href = urls[platform]
-    }
+  const urls = {
+    github: "https://github.com/badreddine55/",
+    linkedin: "https://www.linkedin.com/in/badr-eddine-252704319/",
+    twitter: "https://x.com/Badr_eddine55",
+    instagram: "https://www.instagram.com/badr_dy/",
   }
+
+  if (urls[platform]) {
+    window.open(urls[platform], "_blank")
+  }
+}
 
   return (
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden mt-12">
