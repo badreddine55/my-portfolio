@@ -288,9 +288,8 @@ export default function ServicesSection() {
                 const message = formData.get("message")
                 const subject = `Inquiry about ${currentService}`
                 const body = `From: ${name} <${email}>\n\n${message}`
-                window.location.href = `mailto:beddine330@gmail.com?subject=${encodeURIComponent(
-                  subject
-                )}&body=${encodeURIComponent(body)}`
+                const composeUrl = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=beddine330@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+                window.open(composeUrl, '_blank')
                 setShowForm(false)
               }}
             >
