@@ -201,19 +201,7 @@ export default function SkillsSection() {
                   </div>
 
                   {/* CTA Button */}
-                  <button className="group/btn relative w-full rounded-full bg-transparent border-2 border-teal-500 text-teal-400 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/25 overflow-hidden py-2.5 sm:py-3 md:py-4 px-4 sm:px-6">
-                    {/* Button Background Animation */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-500 scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left" />
 
-                    {/* Button Content */}
-                    <span className="relative z-10 flex items-center justify-center gap-2 text-sm sm:text-base font-semibold">
-                      View My Resume
-                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                    </span>
-
-                    {/* Glow Effect */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/50 to-cyan-500/50 rounded-full opacity-0 group-hover/btn:opacity-100 blur-sm transition-opacity duration-300 -z-10" />
-                  </button>
                 </div>
 
                 {/* Decorative Elements */}
