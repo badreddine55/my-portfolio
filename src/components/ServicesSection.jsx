@@ -288,10 +288,12 @@ export default function ServicesSection() {
                 const message = formData.get("message")
                 const subject = `Inquiry about ${currentService}`
                 const body = `From: ${name} <${email}>\n\n${message}`
-                window.location.href = `mailto:beddine330@gmail.com?subject=${encodeURIComponent(
+                const mailtoUrl = `mailto:beddine330@gmail.com?subject=${encodeURIComponent(
                   subject
                 )}&body=${encodeURIComponent(body)}`
+                window.open(mailtoUrl, '_blank')
                 setShowForm(false)
+                window.location.reload()
               }}
             >
               <div className="space-y-4">
