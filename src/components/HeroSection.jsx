@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useEffect, useState, useRef } from "react"
@@ -160,10 +161,7 @@ const handleSocialClick = (platform) => {
                   className="text-lg text-gray-400 leading-relaxed hover:text-gray-300 transition-colors duration-300 relative z-10"
                   style={{ transform: `translateY(${scrollY * 0.05}px)` }}
                 >
-                  Développeur web passionné, spécialisé en développement full stack et conception UI/UX, avec une forte
-                  aptitude à créer des applications responsives, optimisées et centrées sur l'utilisateur. Polyvalent et
-                  innovant, je résous des problèmes techniques complexes et livre des projets de haute qualité dans les
-                  délais.
+                  Passionate web developer, specialized in full stack development and UI/UX design, with a strong aptitude for creating responsive, optimized, and user-centered applications. Versatile and innovative, I solve complex technical problems and deliver high-quality projects on time.
                 </p>
                 <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-teal-500/50 to-transparent rounded-full"></div>
                 <div className="absolute -right-2 top-2 w-2 h-2 bg-teal-400/60 rounded-full animate-pulse"></div>
